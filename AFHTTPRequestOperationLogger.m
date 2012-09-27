@@ -79,10 +79,10 @@
 
   switch (self.level) {
     case AFLoggerLevelDebug:
-      NSLog(@"%@ '%@': %@ %@", [operation.request HTTPMethod], [[operation.request URL] absoluteString], [operation.request allHTTPHeaderFields], body);
+      AFHTTPREQUESTLOGGER_LOGGING_OPERATION(@"%@ '%@': %@ %@", [operation.request HTTPMethod], [[operation.request URL] absoluteString], [operation.request allHTTPHeaderFields], body);
       break;
     case AFLoggerLevelInfo:
-      NSLog(@"%@ '%@'", [operation.request HTTPMethod], [[operation.request URL] absoluteString]);
+      AFHTTPREQUESTLOGGER_LOGGING_OPERATION(@"%@ '%@'", [operation.request HTTPMethod], [[operation.request URL] absoluteString]);
       break;
         default:
             break;
@@ -102,17 +102,17 @@
             case AFLoggerLevelInfo:
             case AFLoggerLevelWarn:
             case AFLoggerLevelError:
-                NSLog(@"[Error] %@ '%@' (%ld): %@", [operation.request HTTPMethod], [[operation.response URL] absoluteString], (long)[operation.response statusCode], operation.error);
+                AFHTTPREQUESTLOGGER_LOGGING_OPERATION(@"[Error] %@ '%@' (%ld): %@", [operation.request HTTPMethod], [[operation.response URL] absoluteString], (long)[operation.response statusCode], operation.error);
             default:
                 break;
         }
     } else {
         switch (self.level) {
             case AFLoggerLevelDebug:
-                NSLog(@"%ld '%@': %@ %@", (long)[operation.response statusCode], [[operation.response URL] absoluteString], [operation.response allHeaderFields], operation.responseString);
+                AFHTTPREQUESTLOGGER_LOGGING_OPERATION(@"%ld '%@': %@ %@", (long)[operation.response statusCode], [[operation.response URL] absoluteString], [operation.response allHeaderFields], operation.responseString);
                 break;
             case AFLoggerLevelInfo:
-                NSLog(@"%ld '%@'", (long)[operation.response statusCode], [[operation.response URL] absoluteString]);
+                AFHTTPREQUESTLOGGER_LOGGING_OPERATION(@"%ld '%@'", (long)[operation.response statusCode], [[operation.response URL] absoluteString]);
                 break;
             default:
                 break;

@@ -21,6 +21,9 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import <CocoaLumberjack/DDLog.h>
+#define AFHTTPREQUESTLOGGER_LOGGING_OPERATION DDLogVerbose
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 typedef enum {
   AFLoggerLevelOff,
