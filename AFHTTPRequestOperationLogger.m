@@ -103,6 +103,7 @@
             case AFLoggerLevelWarn:
             case AFLoggerLevelError:
                 AFHTTPREQUESTLOGGER_LOGGING_OPERATION(@"[Error] %@ '%@' (%ld): %@", [operation.request HTTPMethod], [[operation.response URL] absoluteString], (long)[operation.response statusCode], operation.error);
+                AFHTTPREQUESTLOGGER_LOGGING_OPERATION(@"[Error Response] %@", operation.responseString);
             default:
                 break;
         }
